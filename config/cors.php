@@ -21,9 +21,10 @@ return [
     // atau `php -S localhost:8080` di folder frontend/.
     'allowed_origins' => [
         'http://localhost:5500',
+        'https://gleeful-cheesecake-ef19c1.netlify.app',
         'http://127.0.0.1:5500',
         'http://localhost:8080',
-        'http://127.0.0.1:8080',
+        'http://127.0.0.1:8080'
         // tambahkan domain production frontend di sini saat deploy, contoh:
         // 'https://tomoto-frontend.example.com',
     ],
@@ -37,6 +38,6 @@ return [
     'max_age' => 0,
 
     // WAJIB false: kita pakai Authorization: Bearer {token}, bukan cookie session.
-    'supports_credentials' => false,
+    'supports_credentials' => true,
 
 ];
