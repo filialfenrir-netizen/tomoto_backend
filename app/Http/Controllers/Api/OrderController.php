@@ -64,11 +64,11 @@ class OrderController extends Controller
         // biasa (lihat UpdateProfileRequest). Kalau kosong, tolak & beri sinyal
         // ke frontend untuk redirect ke halaman edit profil.
         if (blank($request->user()->buyerProfile?->alamat)) {
-            return $this->error(
-                'Alamat pengiriman belum diisi. Silakan lengkapi profil terlebih dahulu.',
-                422,
-                ['redirect' => 'edit-profile']
-            );
+            return response()->json([
+                'success' => false,
+                'message' => 'Alamat pengiriman belum diisi. Silakan lengkapi profil terlebih dahulu.',
+                'data' => ['redirect' => 'edit-profile'],
+            ], 422);
         }
 
         // Petakan alias aman ('car'/'gr_car') ke Model class sebenarnya.
